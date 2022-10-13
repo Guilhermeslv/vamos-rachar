@@ -16,6 +16,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var mtts: TextToSpeech
+    private val myLocale: Locale = Locale("pt","BR")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         //Text-To-Speech
         mtts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
             if (status != TextToSpeech.ERROR){
-                mtts.language = Locale.UK
+                mtts.setLanguage(this.myLocale)
             }
         })
 
